@@ -1,0 +1,15 @@
+{% extends 'app_auth/base.html' %}
+
+{% block content %}
+  <h1>User Detail</h1>
+  <p>Username: {{ user.username }}</p>
+  <p>Email: {{ user.email }}</p>
+  {% if user.profile.avatar %}
+    <img src="{{ user.profile.avatar.url }}" alt="{{ user.username }}'s avatar">
+  {% else %}
+    <p>No avatar</p>
+  {% endif %}
+  {% if is_admin or user == request.user %}
+    <p><a href="{% url 'update_avatar' user.pk %}">Update Avatar</a></p>
+  {% endif %}
+{% endblock %}

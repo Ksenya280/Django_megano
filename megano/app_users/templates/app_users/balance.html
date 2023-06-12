@@ -1,0 +1,18 @@
+{% extends 'app_users/base.html' %}
+
+{% block title %}
+    User balance
+{% endblock %}
+
+{% block body %}
+    <h1>Top up your balance</h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">
+                Submit
+            </button>
+        </form>
+    </div>
+{% endblock %}

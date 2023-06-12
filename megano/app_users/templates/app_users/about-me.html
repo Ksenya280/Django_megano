@@ -1,0 +1,22 @@
+{% extends 'app_users/base.html' %}
+
+{% block title %}
+  About me
+{% endblock %}
+{% block body %}
+  <h1>User info:</h1>
+  {% if user.is_authenticated %}
+    <h2>Detail:</h2>
+    <p>Username: {{ user.username }}</p>
+    <p>Firstname: {{ user.first_name }}</p>
+    <p>Lastname: {{ user.last_name }}</p>
+    <p>Status: {{ user.profile.status }}</p>
+    <p>Balance: {{ user.profile.balance }}</p>
+  {% else %}
+    <h2>User is anonymous</h2>
+  {% endif %}
+  <div>
+        <a href="{% url 'app_users:up_balance' %}">Top up your balance</a>
+
+    </div>
+{% endblock %}
